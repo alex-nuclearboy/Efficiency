@@ -18,6 +18,7 @@ scp wasa:/data7/users/khreptak/OUTPUT/MC/MC-newcuts-AddGammaCut-pd-bound-pdpi0_G
 scp wasa:/data7/users/khreptak/OUTPUT/MC/MC-newcuts-AddGammaCut-pd-bound-pdpi0_G150_Bs20.root ./input
 scp wasa:/data7/users/khreptak/OUTPUT/MC/MC-newcuts-AddGammaCut-pd-bound-pdpi0_ProtDist.root ./input
 scp wasa:/data7/users/khreptak/OUTPUT/MC/MC-newcuts-AddGammaCut-pd-pdpi0.root ./input
+scp wasa:/data7/users/khreptak/OUTPUT/MC/MC-acceptance.root ./input
 mkdir ./output
 mkdir ./output/plots
 mkdir ./output/files
