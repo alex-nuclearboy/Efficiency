@@ -300,8 +300,8 @@ void efficiency() {
     hAcceptance[0]->GetYaxis()->SetRangeUser(0.,100.);
 
     hAcceptance[0]->SetLineWidth(1);
-    hAcceptance[0]->SetLineColor(kCyan-3);
-    hAcceptance[0]->SetMarkerColor(kCyan-3);
+    hAcceptance[0]->SetLineColor(kAzure-3);
+    hAcceptance[0]->SetMarkerColor(kAzure-3);
     hAcceptance[0]->SetMarkerSize(0.85);
     hAcceptance[0]->SetMarkerStyle(23);
     //hAcceptance[0]->Scale(100);
@@ -312,7 +312,7 @@ void efficiency() {
     hAcceptance[1]->SetMarkerColor(kOrange+1);
     hAcceptance[1]->SetMarkerSize(0.75);
     hAcceptance[1]->SetMarkerStyle(20);
-    hAcceptance[1]->Draw("same pE1");
+    //hAcceptance[1]->Draw("same pE1");
 
     hEfficiency[0]->SetLineWidth(1);
     hEfficiency[0]->SetLineColor(kOrange+1);
@@ -320,7 +320,7 @@ void efficiency() {
     hEfficiency[0]->SetMarkerSize(0.75);
     hEfficiency[0]->SetMarkerStyle(20);
     //hEfficiency[0]->Scale(100);
-    //hEfficiency[0]->Draw("same  pE1");
+    hEfficiency[0]->Draw("same  pE1");
 
     hEfficiency[17]->SetLineWidth(1);
     hEfficiency[17]->SetLineColor(kMagenta+2);
