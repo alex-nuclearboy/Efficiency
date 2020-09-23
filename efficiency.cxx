@@ -288,29 +288,29 @@ void efficiency() {
     TCanvas* myCanvas01 = new TCanvas;
 
     //hAcceptance[0]->SetTitle("Acceptance");    
-    hAcceptance[0]->GetXaxis()->SetTitle("excess energy, MeV");
+    hAcceptance[0]->GetXaxis()->SetTitle("excess energy [MeV]");
     hAcceptance[0]->GetXaxis()->SetTitleSize(0.06);
     hAcceptance[0]->GetXaxis()->SetTitleOffset(0.95);
     hAcceptance[0]->GetXaxis()->SetLabelSize(0.05);
     //hAcceptance[0]->GetXaxis()->SetRangeUser(-70.,30.);
-    hAcceptance[0]->GetYaxis()->SetTitle("acceptance, %");
+    hAcceptance[0]->GetYaxis()->SetTitle("acceptance [%]");
     hAcceptance[0]->GetYaxis()->SetTitleSize(0.06);
-    hAcceptance[0]->GetYaxis()->SetTitleOffset(0.85);
+    hAcceptance[0]->GetYaxis()->SetTitleOffset(0.95);
     hAcceptance[0]->GetYaxis()->SetLabelSize(0.05);
     hAcceptance[0]->GetYaxis()->SetRangeUser(0.,100.);
 
     hAcceptance[0]->SetLineWidth(1);
-    hAcceptance[0]->SetLineColor(kAzure-3);
-    hAcceptance[0]->SetMarkerColor(kAzure-3);
+    hAcceptance[0]->SetLineColor(kCyan-3);
+    hAcceptance[0]->SetMarkerColor(kCyan-3);
     hAcceptance[0]->SetMarkerSize(0.85);
     hAcceptance[0]->SetMarkerStyle(23);
     //hAcceptance[0]->Scale(100);
     hAcceptance[0]->Draw("pE1");
 
     hAcceptance[1]->SetLineWidth(1);
-    hAcceptance[1]->SetLineColor(kTeal+4);
-    hAcceptance[1]->SetMarkerColor(kTeal+4);
-    hAcceptance[1]->SetMarkerSize(0.85);
+    hAcceptance[1]->SetLineColor(kOrange+1);
+    hAcceptance[1]->SetMarkerColor(kOrange+1);
+    hAcceptance[1]->SetMarkerSize(0.75);
     hAcceptance[1]->SetMarkerStyle(20);
     hAcceptance[1]->Draw("same pE1");
 
@@ -320,7 +320,7 @@ void efficiency() {
     hEfficiency[0]->SetMarkerSize(0.75);
     hEfficiency[0]->SetMarkerStyle(20);
     //hEfficiency[0]->Scale(100);
-    hEfficiency[0]->Draw("same  pE1");
+    //hEfficiency[0]->Draw("same  pE1");
 
     hEfficiency[17]->SetLineWidth(1);
     hEfficiency[17]->SetLineColor(kMagenta+2);
@@ -328,15 +328,15 @@ void efficiency() {
     hEfficiency[17]->SetMarkerSize(0.75);
     hEfficiency[17]->SetMarkerStyle(21);
     //hEfficiency[17]->Scale(100);
-    hEfficiency[17]->Draw("same  pE1");
+    //hEfficiency[17]->Draw("same  pE1");
 
-    TLegend *myLegend01 = new TLegend(0.300, 0.640, 0.885, 0.885);
+    TLegend *myLegend01 = new TLegend(0.500, 0.750, 0.885, 0.885);
     myLegend01->SetFillStyle(1); myLegend01->SetFillColor(0); myLegend01->SetLineColor(0); myLegend01->SetTextSize(0.04);
-    myLegend01->AddEntry( hAcceptance[1], "geometrical acceptance (p inside ^{3}He)", "lp");
-    myLegend01->AddEntry( hAcceptance[0], "geometrical acceptance (N* in N*-d)", "lp");
-    //myLegend01->AddEntry( hAcceptance[0], "geometrical acceptance", "lp");
-    myLegend01->AddEntry( hEfficiency[0], "signal efficiency", "lp");
-    myLegend01->AddEntry( hEfficiency[17], "bkgnd efficiency: pd #rightarrow dp#pi^{0}", "lp");    
+    //myLegend01->AddEntry( hAcceptance[1], "geometrical acceptance (p inside ^{3}He)", "lp");
+    //myLegend01->AddEntry( hAcceptance[0], "geometrical acceptance (N* in N*-d)", "lp");
+    myLegend01->AddEntry( hAcceptance[0], "geometrical acceptance", "lp");
+    myLegend01->AddEntry( hEfficiency[0], "efficiency", "lp");
+    //myLegend01->AddEntry( hEfficiency[17], "bkgnd efficiency: pd #rightarrow dp#pi^{0}", "lp");
     myLegend01->Draw("same");
 
     myCanvas01->Print("output/plots/hAcceptance.png","png");
@@ -346,24 +346,24 @@ void efficiency() {
     TCanvas* myCanvas01a = new TCanvas;
 
     hAcceptance[0]->GetXaxis()->SetTitle("\\hbox{energia dostępna, MeV}");
-    //hAcceptance[0]->GetYaxis()->SetTitle("\\hbox{akceptancja, %}");
-    hAcceptance[0]->GetYaxis()->SetTitle("\\hbox{wydajność, %}");
+    hAcceptance[0]->GetYaxis()->SetTitle("\\hbox{akceptancja, %}");
+    //hAcceptance[0]->GetYaxis()->SetTitle("\\hbox{wydajność, %}");
 
     hAcceptance[0]->Draw("pE1");
-    //hAcceptance[1]->Draw("same pE1");
-    hEfficiency[0]->Draw("same pE");
-    hEfficiency[17]->Draw("same pE");
+    hAcceptance[1]->Draw("same pE1");
+    //hEfficiency[0]->Draw("same pE");
+    //hEfficiency[17]->Draw("same pE");
 
-    //TLegend *myLegend01a = new TLegend(0.450, 0.720, 0.885, 0.885);
-    TLegend *myLegend01a = new TLegend(0.457, 0.607, 0.885, 0.885);
+    TLegend *myLegend01a = new TLegend(0.450, 0.720, 0.885, 0.885);
+    //TLegend *myLegend01a = new TLegend(0.457, 0.607, 0.885, 0.885);
     myLegend01a->SetFillStyle(1001); myLegend01a->SetFillColor(19); myLegend01a->SetLineColor(1); myLegend01a->SetTextSize(0.04); myLegend01a->SetBorderSize(5);
-    //myLegend01a->AddEntry((TObject*)0, "Akceptancja geometryczna:", "");
-    //myLegend01a->AddEntry( hAcceptance[1], "proton w ^{3}He", "elp");
-    //myLegend01a->AddEntry( hAcceptance[0], "\\hbox{N* w układzie N*-d}", "elp");
-    myLegend01a->AddEntry( hAcceptance[0], "akceptancja geometryczna", "elp");
-    myLegend01a->AddEntry((TObject*)0, "\\hbox{Wydajność rekonstrukcji:}", "");
-    myLegend01a->AddEntry( hEfficiency[0], "pd #rightarrow (^{3}He#eta)_{            } #rightarrow dp#pi^{0}", "elp");
-    myLegend01a->AddEntry( hEfficiency[17], "pd #rightarrow dp#pi^{0}", "elp");
+    myLegend01a->AddEntry((TObject*)0, "Akceptancja geometryczna:", "");
+    myLegend01a->AddEntry( hAcceptance[1], "proton w ^{3}He", "elp");
+    myLegend01a->AddEntry( hAcceptance[0], "\\hbox{N* w układzie N*-d}", "elp");
+    //myLegend01a->AddEntry( hAcceptance[0], "akceptancja geometryczna", "elp");
+    //myLegend01a->AddEntry((TObject*)0, "\\hbox{Wydajność rekonstrukcji:}", "");
+    //myLegend01a->AddEntry( hEfficiency[0], "pd #rightarrow (^{3}He#eta)_{            } #rightarrow dp#pi^{0}", "elp");
+    //myLegend01a->AddEntry( hEfficiency[17], "pd #rightarrow dp#pi^{0}", "elp");
     myLegend01a->Draw();
 
     TPaveText *bnd = new TPaveText(9.5, 72.5, 9.5, 72.5,"boubd");
@@ -372,7 +372,7 @@ void efficiency() {
     bnd->SetTextColor(1);
     bnd->SetTextAlign(22);
     bnd->AddText("\\hbox{związany}");
-    bnd->Draw("same");
+    //bnd->Draw("same");
 
     myCanvas01a->Print("output/plots/hAcceptance_pl.png","png");
     myCanvas01a->Print("output/plots/hAcceptance_pl.eps","eps");
