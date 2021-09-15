@@ -57,8 +57,8 @@ void correlationEkinvsTheta() {
     //
     TCanvas* MyCanvas00 = new TCanvas;
 
-    hist_EkinvsTheta[0]->GetXaxis()->SetTitle("kinetic energy, GeV");
-    hist_EkinvsTheta[0]->GetYaxis()->SetTitle("#theta,#circ");
+    hist_EkinvsTheta[0]->GetXaxis()->SetTitle("kinetic energy [GeV]");
+    hist_EkinvsTheta[0]->GetYaxis()->SetTitle("#theta [deg]");
     hist_EkinvsTheta[0]->GetXaxis()->SetTitleSize(0.06);
     hist_EkinvsTheta[0]->GetXaxis()->SetTitleOffset(1.0);
     hist_EkinvsTheta[0]->GetXaxis()->SetLabelSize(0.05);
@@ -97,7 +97,8 @@ void correlationEkinvsTheta() {
 
     //
     TCanvas* MyCanvas00a = new TCanvas("MyCanvas00a","",465,500);
-    hist_EkinvsTheta[0]->GetXaxis()->SetTitle("energia kinetyczna, GeV");
+    hist_EkinvsTheta[0]->GetXaxis()->SetTitle("energia kinetyczna [GeV]");
+    hist_EkinvsTheta[0]->GetYaxis()->SetTitle("#theta [#circ]");
     hist_EkinvsTheta[0]->Draw("colz");
     line000->Draw("same");
     line001->Draw("same");
@@ -108,8 +109,8 @@ void correlationEkinvsTheta() {
     //
     TCanvas* MyCanvas01 = new TCanvas;
 
-    hist_EkinvsTheta[1]->GetXaxis()->SetTitle("kinetic energy, GeV");
-    hist_EkinvsTheta[1]->GetYaxis()->SetTitle("#theta,#circ");
+    hist_EkinvsTheta[1]->GetXaxis()->SetTitle("kinetic energy [GeV]");
+    hist_EkinvsTheta[1]->GetYaxis()->SetTitle("#theta [deg]");
     hist_EkinvsTheta[1]->GetXaxis()->SetTitleSize(0.06);
     hist_EkinvsTheta[1]->GetXaxis()->SetTitleOffset(1.0);
     hist_EkinvsTheta[1]->GetXaxis()->SetLabelSize(0.05);
@@ -167,7 +168,8 @@ void correlationEkinvsTheta() {
 
     //
     TCanvas* MyCanvas01a = new TCanvas("MyCanvas01a","",465,500);
-    hist_EkinvsTheta[1]->GetXaxis()->SetTitle("energia kinetyczna, GeV");
+    hist_EkinvsTheta[1]->GetXaxis()->SetTitle("energia kinetyczna [GeV]");
+    hist_EkinvsTheta[1]->GetYaxis()->SetTitle("#theta [#circ]");
     hist_EkinvsTheta[1]->Draw("colz");
     line010->Draw("same");
     line011->Draw("same");
@@ -180,8 +182,8 @@ void correlationEkinvsTheta() {
 
     //
     TCanvas* MyCanvas02 = new TCanvas;
-    hist_EkinvsTheta[2]->GetXaxis()->SetTitle("kinetic energy, GeV");
-    hist_EkinvsTheta[2]->GetYaxis()->SetTitle("#theta,#circ");
+    hist_EkinvsTheta[2]->GetXaxis()->SetTitle("kinetic energy [GeV]");
+    hist_EkinvsTheta[2]->GetYaxis()->SetTitle("#theta [deg]");
     hist_EkinvsTheta[2]->GetXaxis()->SetTitleSize(0.06);
     hist_EkinvsTheta[2]->GetXaxis()->SetTitleOffset(1.0);
     hist_EkinvsTheta[2]->GetXaxis()->SetLabelSize(0.05);
@@ -219,7 +221,8 @@ void correlationEkinvsTheta() {
 
     //
     TCanvas* MyCanvas02a = new TCanvas("MyCanvas02a","",465,500);
-    hist_EkinvsTheta[2]->GetXaxis()->SetTitle("energia kinetyczna, GeV");
+    hist_EkinvsTheta[2]->GetXaxis()->SetTitle("energia kinetyczna [GeV]");
+    hist_EkinvsTheta[2]->GetYaxis()->SetTitle("#theta [#circ]");
     hist_EkinvsTheta[2]->Draw("colz");
     line020->Draw("same");
     line021->Draw("same");
@@ -228,4 +231,3 @@ void correlationEkinvsTheta() {
     MyCanvas02a->Print("output/plots/hEkinvsTheta_gamma_pl.png","png");
 
 }
-
