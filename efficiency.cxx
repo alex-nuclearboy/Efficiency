@@ -50,7 +50,7 @@ void efficiency() {
 
     TFile *myFile[20];
 
-    myFile[0] = new TFile("input/MC-newcuts-AddGammaCut-pd-bound-pdpi0.root","READ");    
+    myFile[0] = new TFile("input/MC-newcuts-AddGammaCut-pd-bound-pdpi0.root","READ");
     myFile[1] = new TFile("input/MC-newcuts-AddGammaCut-pd-bound-pdpi0_G20_Bs10.root","READ");
     myFile[2] = new TFile("input/MC-newcuts-AddGammaCut-pd-bound-pdpi0_G20_Bs20.root","READ");
     myFile[3] = new TFile("input/MC-newcuts-AddGammaCut-pd-bound-pdpi0_G20_Bs30.root","READ");
@@ -65,7 +65,7 @@ void efficiency() {
     myFile[12] = new TFile("input/MC-newcuts-AddGammaCut-pd-bound-pdpi0_G50_Bs20.root","READ");
     myFile[13] = new TFile("input/MC-newcuts-AddGammaCut-pd-bound-pdpi0_G50_Bs30.root","READ");
     myFile[14] = new TFile("input/MC-newcuts-AddGammaCut-pd-bound-pdpi0_G50_Bs40.root","READ");
-    myFile[15] = new TFile("input/MC-newcuts-AddGammaCut-pd-bound-pdpi0_G150_Bs20.root","READ");    
+    myFile[15] = new TFile("input/MC-newcuts-AddGammaCut-pd-bound-pdpi0_G150_Bs20.root","READ");
     myFile[16] = new TFile("input/MC-newcuts-AddGammaCut-pd-bound-pdpi0_ProtDist.root","READ");
     myFile[17] = new TFile("input/MC-newcuts-AddGammaCut-pd-pdpi0.root","READ");
 
@@ -287,7 +287,7 @@ void efficiency() {
 
     TCanvas* myCanvas01 = new TCanvas;
 
-    //hAcceptance[0]->SetTitle("Acceptance");    
+    //hAcceptance[0]->SetTitle("Acceptance");
     hAcceptance[0]->GetXaxis()->SetTitle("excess energy [MeV]");
     hAcceptance[0]->GetXaxis()->SetTitleSize(0.06);
     hAcceptance[0]->GetXaxis()->SetTitleOffset(0.95);
@@ -328,15 +328,15 @@ void efficiency() {
     hEfficiency[17]->SetMarkerSize(0.75);
     hEfficiency[17]->SetMarkerStyle(21);
     //hEfficiency[17]->Scale(100);
-    //hEfficiency[17]->Draw("same  pE1");
+    hEfficiency[17]->Draw("same  pE1");
 
-    TLegend *myLegend01 = new TLegend(0.500, 0.750, 0.885, 0.885);
+    TLegend *myLegend01 = new TLegend(0.460, 0.750, 0.885, 0.885);
     myLegend01->SetFillStyle(1); myLegend01->SetFillColor(0); myLegend01->SetLineColor(0); myLegend01->SetTextSize(0.04);
     //myLegend01->AddEntry( hAcceptance[1], "geometrical acceptance (p inside ^{3}He)", "lp");
     //myLegend01->AddEntry( hAcceptance[0], "geometrical acceptance (N* in N*-d)", "lp");
     myLegend01->AddEntry( hAcceptance[0], "geometrical acceptance", "lp");
     myLegend01->AddEntry( hEfficiency[0], "efficiency", "lp");
-    //myLegend01->AddEntry( hEfficiency[17], "bkgnd efficiency: pd #rightarrow dp#pi^{0}", "lp");
+    myLegend01->AddEntry( hEfficiency[17], "bkgnd efficiency: pd #rightarrow dp#pi^{0}", "lp");
     myLegend01->Draw("same");
 
     myCanvas01->Print("output/plots/hAcceptance.png","png");
@@ -345,25 +345,25 @@ void efficiency() {
     //
     TCanvas* myCanvas01a = new TCanvas;
 
-    hAcceptance[0]->GetXaxis()->SetTitle("\\hbox{energia dostępna, MeV}");
-    hAcceptance[0]->GetYaxis()->SetTitle("\\hbox{akceptancja, %}");
+    hAcceptance[0]->GetXaxis()->SetTitle("\\hbox{energia dostępna [MeV]}");
+    hAcceptance[0]->GetYaxis()->SetTitle("\\hbox{akceptancja [%]}");
     //hAcceptance[0]->GetYaxis()->SetTitle("\\hbox{wydajność, %}");
 
     hAcceptance[0]->Draw("pE1");
-    hAcceptance[1]->Draw("same pE1");
-    //hEfficiency[0]->Draw("same pE");
-    //hEfficiency[17]->Draw("same pE");
+    //hAcceptance[1]->Draw("same pE1");
+    hEfficiency[0]->Draw("same pE");
+    hEfficiency[17]->Draw("same pE");
 
-    TLegend *myLegend01a = new TLegend(0.450, 0.720, 0.885, 0.885);
-    //TLegend *myLegend01a = new TLegend(0.457, 0.607, 0.885, 0.885);
+    //TLegend *myLegend01a = new TLegend(0.450, 0.720, 0.885, 0.885);
+    TLegend *myLegend01a = new TLegend(0.457, 0.607, 0.885, 0.885);
     myLegend01a->SetFillStyle(1001); myLegend01a->SetFillColor(19); myLegend01a->SetLineColor(1); myLegend01a->SetTextSize(0.04); myLegend01a->SetBorderSize(5);
-    myLegend01a->AddEntry((TObject*)0, "Akceptancja geometryczna:", "");
-    myLegend01a->AddEntry( hAcceptance[1], "proton w ^{3}He", "elp");
-    myLegend01a->AddEntry( hAcceptance[0], "\\hbox{N* w układzie N*-d}", "elp");
-    //myLegend01a->AddEntry( hAcceptance[0], "akceptancja geometryczna", "elp");
-    //myLegend01a->AddEntry((TObject*)0, "\\hbox{Wydajność rekonstrukcji:}", "");
-    //myLegend01a->AddEntry( hEfficiency[0], "pd #rightarrow (^{3}He#eta)_{            } #rightarrow dp#pi^{0}", "elp");
-    //myLegend01a->AddEntry( hEfficiency[17], "pd #rightarrow dp#pi^{0}", "elp");
+    //myLegend01a->AddEntry((TObject*)0, "Akceptancja geometryczna:", "");
+    //myLegend01a->AddEntry( hAcceptance[1], "proton w ^{3}He", "elp");
+    //myLegend01a->AddEntry( hAcceptance[0], "\\hbox{N* w układzie N*-d}", "elp");
+    myLegend01a->AddEntry( hAcceptance[0], "akceptancja geometryczna", "elp");
+    myLegend01a->AddEntry((TObject*)0, "\\hbox{Wydajność rekonstrukcji:}", "");
+    myLegend01a->AddEntry( hEfficiency[0], "pd #rightarrow (^{3}He#eta)_{            } #rightarrow dp#pi^{0}", "elp");
+    myLegend01a->AddEntry( hEfficiency[17], "pd #rightarrow dp#pi^{0}", "elp");
     myLegend01a->Draw();
 
     TPaveText *bnd = new TPaveText(9.5, 72.5, 9.5, 72.5,"boubd");
@@ -372,7 +372,7 @@ void efficiency() {
     bnd->SetTextColor(1);
     bnd->SetTextAlign(22);
     bnd->AddText("\\hbox{związany}");
-    //bnd->Draw("same");
+    bnd->Draw("same");
 
     myCanvas01a->Print("output/plots/hAcceptance_pl.png","png");
     myCanvas01a->Print("output/plots/hAcceptance_pl.eps","eps");
@@ -381,12 +381,12 @@ void efficiency() {
     TCanvas* myCanvas02 = new TCanvas;
 
     //hEfficiency[1]->SetTitle("Efficiency");
-    hEfficiency[1]->GetXaxis()->SetTitle("excess energy, MeV");
+    hEfficiency[1]->GetXaxis()->SetTitle("excess energy [MeV]");
     hEfficiency[1]->GetXaxis()->SetTitleSize(0.06);
     hEfficiency[1]->GetXaxis()->SetTitleOffset(0.95);
     hEfficiency[1]->GetXaxis()->SetLabelSize(0.05);
     //hEfficiency[1]->GetXaxis()->SetRangeUser(-70.,30.);
-    hEfficiency[1]->GetYaxis()->SetTitle("efficiency, %");
+    hEfficiency[1]->GetYaxis()->SetTitle("efficiency [%]");
     hEfficiency[1]->GetYaxis()->SetTitleSize(0.06);
     hEfficiency[1]->GetYaxis()->SetTitleOffset(0.85);
     hEfficiency[1]->GetYaxis()->SetLabelSize(0.05);
@@ -442,8 +442,8 @@ void efficiency() {
     //
     TCanvas* myCanvas02a = new TCanvas;
 
-    hEfficiency[1]->GetXaxis()->SetTitle("\\hbox{energia dostępna, MeV}");
-    hEfficiency[1]->GetYaxis()->SetTitle("\\hbox{wydajność, %}");
+    hEfficiency[1]->GetXaxis()->SetTitle("\\hbox{energia dostępna [MeV]}");
+    hEfficiency[1]->GetYaxis()->SetTitle("\\hbox{wydajność [%]}");
     hEfficiency[1]->Draw("p E1");
 
     hEfficiency[5]->Draw("same p E1");
@@ -467,7 +467,7 @@ void efficiency() {
     TCanvas* myCanvas03 = new TCanvas;
 
     //hEfficiencySystErr[0]->SetTitle("Efficiency");
-    hEfficiencySystErr[0]->GetXaxis()->SetTitle("excess energy, MeV");
+    hEfficiencySystErr[0]->GetXaxis()->SetTitle("excess energy [MeV]");
     hEfficiencySystErr[0]->GetXaxis()->SetTitleSize(0.06);
     hEfficiencySystErr[0]->GetXaxis()->SetTitleOffset(0.95);
     hEfficiencySystErr[0]->GetXaxis()->SetLabelSize(0.05);
@@ -538,8 +538,8 @@ void efficiency() {
     //
     TCanvas* myCanvas03a = new TCanvas;
 
-    hEfficiencySystErr[0]->GetXaxis()->SetTitle("\\hbox{energia dostępna, MeV}");
-    hEfficiencySystErr[0]->GetYaxis()->SetTitle("\\hbox{wydajność,%}");
+    hEfficiencySystErr[0]->GetXaxis()->SetTitle("\\hbox{energia dostępna [MeV]}");
+    hEfficiencySystErr[0]->GetYaxis()->SetTitle("\\hbox{wydajność}");
     hEfficiencySystErr[0]->Draw("E1");
 
     hEfficiencySystErr[1]->Draw("same E1");
@@ -553,7 +553,7 @@ void efficiency() {
     hEfficiencySystErr[9]->Draw("same E1");
     hEfficiencySystErr[10]->Draw("same E1");
 
-    TLegend *myLegend03a = new TLegend(0.530, 0.500, 0.885, 0.885);
+    TLegend *myLegend03a = new TLegend(0.530, 0.585, 0.885, 0.885);
     myLegend03a->SetFillStyle(1001); myLegend03a->SetFillColor(19); myLegend03a->SetLineColor(1); myLegend03a->SetTextSize(0.04); myLegend03a->SetBorderSize(5);
     myLegend03a->AddEntry(hEfficiencySystErr[0], "bazowa", "elp");
     myLegend03a->AddEntry(hEfficiencySystErr[1], "#DeltaE(PSB)-#DeltaE(SEC)", "elp");
